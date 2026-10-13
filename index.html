@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "secondary-fixed": "#dfe3e9", "on-secondary-container": "#b4b9bf", "on-secondary": "#2c3136", "surface-tint": "#c6c6c7", "on-error-container": "#ffdad6", "outline": "#8e9192", "surface-bright": "#393939", "surface-container-lowest": "#0e0e0e", "on-secondary-fixed": "#171c20", "tertiary": "#ffffff", "surface-variant": "#353534", "surface-container-highest": "#353534", "inverse-surface": "#e5e2e1", "on-primary-fixed": "#1a1c1c", "secondary-container": "#454a4f", "surface-container-low": "#1c1b1b", "on-surface": "#e5e2e1", "on-tertiary-fixed": "#151c25", "inverse-primary": "#5d5f5f", "tertiary-fixed-dim": "#c0c7d3", "surface-container": "#201f1f", "surface": "#131313", "tertiary-fixed": "#dce3f0", "on-tertiary": "#2a313b", "inverse-on-surface": "#313030", "outline-variant": "#444748", "primary-fixed-dim": "#c6c6c7", "surface-dim": "#131313", "secondary-fixed-dim": "#c3c7cd", "on-surface-variant": "#c4c7c8", "primary-container": "#e2e2e2", "background": "#131313", "primary-fixed": "#e2e2e2", "primary": "#ffffff", "surface-container-high": "#2a2a2a", "on-primary-container": "#636565", "on-tertiary-fixed-variant": "#404752", "on-tertiary-container": "#5e6570", "on-error": "#690005", "on-background": "#e5e2e1", "tertiary-container": "#dce3f0", "on-primary": "#2f3131", "error-container": "#93000a", "on-secondary-fixed-variant": "#43474c", "secondary": "#c3c7cd", "on-primary-fixed-variant": "#454747", "error": "#ffb4ab" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "gutter-lg": "2rem", "space-xl": "2.5rem", "gutter": "1.5rem", "margin-sm": "1.25rem", "gutter-sm": "1rem", "space-sm": "0.5rem", "margin-lg": "3.5rem", "space-xs": "0.25rem", "space-md": "1rem", "space-lg": "1.5rem", "margin": "2rem" }, fontFamily: { "headline-sm": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "label-lg": ["Space Grotesk"], "display-xl": ["Space Grotesk"], "label-md": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "body-md": ["Inter"], "body-lg": ["Inter"], "body-sm": ["Inter"], "display-xl-mobile": ["Space Grotesk"], "label-sm": ["Space Grotesk"] }, fontSize: { "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.08em", "fontWeight": "600" }], "display-xl": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "display-xl-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.12em", "fontWeight": "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;background-color:#131313;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-primary selection:text-surface"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_16px_rgba(0,0,0,0.6)]"><div class="h-16 px-margin-sm flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-expanded="false" aria-label="Navigation Menu" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="toggleNoirMenu()"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="flex items-center gap-space-sm pl-space-xs"><img alt="NOIR FITNESS AI Logo" class="h-8 w-auto object-contain" loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/aida/AEtjO1VlHFge36iyL4svvTpxu5Q3M7EGHcIGASQg055fRMn5n2poAdSw4MADULdM3WHqeHkQC-XbJzlTWC31mhutnGJFl3uPZIafxB6tVM7Jyd7X33NZwYsd0h3Qw9KbAuM7A0T2zRAEeaIW2tVjBUpLJ22GLc4AtimJ8aQdp8-hbA_UYdAPBaAnVWhLwKjhF6XxJUvvukSgozA4UuiQ4bQFY0pCND8V_SU8NIvlyDeotYcf9p4bTf3aCvttZrQ"/><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant leading-none">NOIR</span><span class="font-headline-sm text-headline-sm uppercase tracking-tight text-primary leading-none mt-0.5">Home</span></div></div></div><div class="flex items-center gap-space-sm"><button class="h-8 px-space-sm rounded-full bg-surface-container-high/60 backdrop-blur-md flex items-center gap-1.5 text-on-surface hover:text-primary transition-all duration-300 shadow-[0_0_12px_rgba(255,255,255,0.05)] cursor-pointer" onclick="openAiModal()"><span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Ask AI</span></button><div class="relative flex items-center justify-center p-0.5 rounded-full bg-gradient-to-tr from-surface-variant via-outline to-primary shadow-[0_0_10px_rgba(255,255,255,0.15)]"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg9UpvMlB14XBKO9441LsvN0YXUwuWjDLO1GYXtoQFiZOpAImPeZDscMDw7qTkHqpOGV1WlCAkWV-VwrHN2zoS0YjvBUjOYNsLw5mh2DSHeYULu_Xd2IwDEVhiv-qioVHbPIug2cfN06lHdms_8Mch4IIEHhmv57Qa1p7Scg6ZuZA9zp2eBxf_b18SpU2BNw6J4pZUwJ-C__GY8ekjcoAw8f5XO6WK5r3jMUcQFZjP2a46GXO-D5aX"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-primary shadow-[0_0_6px_rgba(255,255,255,0.9)]"></span></div></div><div class="noir-desktop-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#memberships">Memberships</a><a href="contact.html">Contact</a></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-36 bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- 1. CINEMATIC HERO SECTION -->
+<section class="relative w-full overflow-hidden px-margin-sm pt-space-md pb-space-xl flex flex-col items-start">
+<!-- Ambient architectural scrim backdrop -->
+<div class="absolute inset-0 -z-10 bg-gradient-to-b from-surface-container-lowest via-surface to-surface-container-low opacity-95"></div>
+<div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none -z-10"></div>
+<!-- Hero Photography Container with Frosted Overlay -->
+<div class="relative w-full h-80 rounded-xl overflow-hidden mb-space-lg shadow-[0_16px_40px_rgba(0,0,0,0.9)]">
+<div class="w-full h-full bg-cover bg-center" data-alt="Monolithic architectural luxury gym sanctuary in ultra-dark matte carbon and polished obsidian. Dramatic volumetric overhead spotlights illuminating custom machined matte-black dumbbells and precision biomechanical racks. Minimalist smoke, cold rim lighting, reflective smoked mirrors, museum-grade architectural lighting with deep contrast and rich dark atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC52m6ehSQhg8_3xtytdrqH9b39naWgy-wmRRlH46pa4MmWnTtmUg7QCRUzKlHuYyY4EEEkchQgk2iy4kKwrWphkWv7OZqB8pKh8D6oXAdgQdGLHPkJfRShq5q7HrvC7hdAmHQP_fB_CHoI4xeXVMQC9skxV7KVZA_RJq1yukxXynqsBBTkk4cz5XoQPsRR5dP9ZOyp0tC0KgsqqwD5DoJyxQZPuZ4CVK-C_xeAs-ch4ABmLEQi6KPn')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface/40 to-transparent"></div>
+<!-- Live Sanctuary Beacon -->
+<div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">MAYFAIR • NYC • ZÜRICH</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Biometric Telemetry</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase">99.4% Latency: 4ms</span>
+</div>
+</div>
+<!-- Micro Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/80 mb-space-sm shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(255,255,255,0.9)]"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant font-medium">Exclusive Intelligence &amp; Performance</span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tight text-primary font-bold mb-space-xs leading-none">
+      Beyond Strength.<br/>Beyond Limits.
+    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg max-w-sm">
+      Where brutalist architectural luxury converges with hyper-personalized AI biometric programming and surgical athletic refinement.
+    </p>
+<!-- CTAs -->
+<div class="flex flex-col sm:flex-row gap-space-sm w-full mb-space-xl">
+<button class="w-full sm:w-auto flex-1 h-12 px-space-md rounded-xl bg-primary text-surface font-label-md text-label-md uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-surface-tint active:scale-[0.98] transition-all duration-200 shadow-[0_4px_24px_rgba(255,255,255,0.2)] cursor-pointer" onclick="openAiModal()">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">neurology</span>
+<span>Ask AI Coach</span>
+</button>
+<a class="w-full sm:w-auto flex-1 h-12 px-space-md rounded-xl bg-surface-container-high/60 backdrop-blur-md text-primary font-label-md text-label-md uppercase tracking-wider font-semibold flex items-center justify-center gap-2 hover:bg-surface-bright active:scale-[0.98] transition-all duration-200 shadow-md" data-path="memberships" href="index.html#memberships">
+<span>Explore Access</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- Ticker Metric Strip -->
+<div class="w-full grid grid-cols-3 gap-2 p-3 rounded-xl bg-surface-container-low/70 backdrop-blur-md">
+<div class="flex flex-col items-center text-center p-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">99.4%</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline text-[10px]">Precision</span>
+</div>
+<div class="flex flex-col items-center text-center p-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">3</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline text-[10px]">Sanctuaries</span>
+</div>
+<div class="flex flex-col items-center text-center p-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">1:1</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline text-[10px]">Neural Split</span>
+</div>
+</div>
+</section>
+<!-- 2. INTERACTIVE FLOATING NOIR AI COACH PREVIEW -->
+<section class="w-full px-margin-sm py-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.16em] text-on-surface font-semibold">NOIR Neural Engine</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">v4.2 Active</span>
+</div>
+<!-- Interactive AI Terminal Pod -->
+<div class="relative w-full rounded-xl bg-surface-container-high/40 backdrop-blur-2xl p-space-md flex flex-col gap-space-md shadow-[0_20px_40px_rgba(0,0,0,0.7)]">
+<!-- Top edge specular bar -->
+<div class="absolute top-0 inset-x-8 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+<!-- Live Chat Simulation Bubble -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- User Query -->
+<div class="self-end max-w-[85%] rounded-xl rounded-tr-none bg-surface-container-highest px-space-md py-2 text-on-surface font-body-sm text-body-sm shadow-sm">
+<span>Targeting hypertrophy with lower joint strain today. Suggested load?</span>
+</div>
+<!-- AI Response -->
+<div class="self-start max-w-[92%] flex gap-2.5 items-start">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center flex-shrink-0 mt-0.5 shadow-inner">
+<span class="material-symbols-outlined text-[14px] text-primary">cognition</span>
+</div>
+<div class="rounded-xl rounded-tl-none bg-surface-container-low p-space-md shadow-md flex flex-col gap-2">
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+              Biometric readiness is <strong class="text-primary font-semibold">89%</strong>. Shifting to mechanical tension: 4 sets of 8–10 tempo deficit Bulgarian split squats (3-0-1 cadence). Heart rate zone target capped at 148 BPM.
+            </p>
+<div class="flex items-center gap-2 text-outline font-label-sm text-[10px] tracking-wider uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
+<span>Telemetry Synthesized • HRV 74ms</span>
+</div>
+</div>
+</div>
+<!-- Interactive Typing Indicator -->
+<div class="hidden self-start flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low text-outline font-label-sm text-label-sm" id="aiTypingFeedback">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce [animation-delay:0.2s]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce [animation-delay:0.4s]"></span>
+<span class="ml-1 uppercase tracking-wider text-[10px]">Neural computing...</span>
+</div>
+</div>
+<!-- Quick Interactive Pills -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Quick Diagnostics</span>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-bright hover:text-primary transition-colors flex items-center gap-1.5" onclick="simulateQuery('Create my muscle-building workout')">
+<span class="material-symbols-outlined text-[14px]">fitness_center</span>
+<span>Muscle-building split</span>
+</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-bright hover:text-primary transition-colors flex items-center gap-1.5" onclick="simulateQuery('How much protein do I need?')">
+<span class="material-symbols-outlined text-[14px]">restaurant</span>
+<span>Protein target</span>
+</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-bright hover:text-primary transition-colors flex items-center gap-1.5" onclick="simulateQuery('Build a weekly training split')">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span>
+<span>Weekly split</span>
+</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-bright hover:text-primary transition-colors flex items-center gap-1.5" onclick="simulateQuery('Suggest healthy meals')">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Meal framework</span>
+</button>
+</div>
+</div>
+<!-- Chat input mockup -->
+<div class="flex items-center gap-2 p-1.5 rounded-xl bg-surface-container-lowest">
+<input class="flex-1 bg-transparent px-3 py-1.5 text-on-surface font-body-sm text-body-sm placeholder:text-outline outline-none" id="neuralInput" placeholder="Ask NOIR Neural Coach..." type="text"/>
+<button aria-label="Send query" class="w-9 h-9 rounded-lg bg-primary text-surface flex items-center justify-center hover:bg-surface-tint active:scale-95 transition-all" onclick="handleCustomSubmit()">
+<span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+</button>
+</div>
+<div class="flex justify-between items-center px-1">
+<span class="font-label-sm text-[10px] tracking-wider uppercase text-outline">Encrypted Biometric Bus</span>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-primary flex items-center gap-1 hover:underline cursor-pointer" onclick="openAiModal()">
+<span>Full Console</span>
+<span class="material-symbols-outlined text-[12px]">open_in_new</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 3. PERSONALISED FITNESS QUESTIONNAIRE WIZARD -->
+<section class="w-full px-margin-sm py-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-outline font-semibold">Adaptive Protocol</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold uppercase tracking-tight text-primary">Biometric Assessment</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Calibrate your neural training blueprint in four rapid vectors.</p>
+</div>
+<!-- Wizard Card Container -->
+<div class="w-full rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-md shadow-lg">
+<!-- Live Progress Bar -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center font-label-sm text-label-sm uppercase tracking-wider">
+<span class="text-on-surface-variant" id="wizardStepLabel">Vector 01 of 04</span>
+<span class="text-primary font-bold" id="wizardPercentLabel">25% CALIBRATED</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-300 w-1/4" id="wizardProgressBar"></div>
+</div>
+</div>
+<!-- Question 1: Fitness Goal -->
+<div class="wizard-step flex flex-col gap-space-sm" id="step-1">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">01. Primary Biometric Objective</span>
+<div class="grid grid-cols-2 gap-2">
+<button class="opt-btn-goal p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex flex-col gap-1 group" onclick="selectOption('goal', 'Hypertrophy', 1)">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary group-hover:text-primary">Hypertrophy</span>
+<span class="font-body-sm text-[11px] text-outline">Targeted myofibrillar growth</span>
+</button>
+<button class="opt-btn-goal p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex flex-col gap-1 group" onclick="selectOption('goal', 'Strength', 1)">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary group-hover:text-primary">Athletic Power</span>
+<span class="font-body-sm text-[11px] text-outline">Rate of force development</span>
+</button>
+<button class="opt-btn-goal p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex flex-col gap-1 group" onclick="selectOption('goal', 'Cut', 1)">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary group-hover:text-primary">Metabolic Cut</span>
+<span class="font-body-sm text-[11px] text-outline">Sub-10% lipid recomposition</span>
+</button>
+<button class="opt-btn-goal p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex flex-col gap-1 group" onclick="selectOption('goal', 'Longevity', 1)">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary group-hover:text-primary">Longevity</span>
+<span class="font-body-sm text-[11px] text-outline">Mitochondrial &amp; VO2 Peak</span>
+</button>
+</div>
+</div>
+<!-- Question 2: Experience Tier -->
+<div class="wizard-step hidden flex flex-col gap-space-sm" id="step-2">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">02. Neuromuscular Experience</span>
+<div class="grid grid-cols-1 gap-2">
+<button class="opt-btn-exp p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex items-center justify-between" onclick="selectOption('exp', 'Novice', 2)">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Foundational / Novice</span>
+<span class="font-body-sm text-[11px] text-outline">&lt; 1 Year deliberate lifting</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline">chevron_right</span>
+</button>
+<button class="opt-btn-exp p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex items-center justify-between" onclick="selectOption('exp', 'Intermediate', 2)">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Intermediate Competitor</span>
+<span class="font-body-sm text-[11px] text-outline">2–4 Years consistent overload</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline">chevron_right</span>
+</button>
+<button class="opt-btn-exp p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex items-center justify-between" onclick="selectOption('exp', 'Elite', 2)">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Elite High-Performer</span>
+<span class="font-body-sm text-[11px] text-outline">5+ Years structured periodization</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-outline">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Question 3: Training Days -->
+<div class="wizard-step hidden flex flex-col gap-space-sm" id="step-3">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">03. Weekly Microcycle Capacity</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="opt-btn-days p-3 rounded-lg bg-surface-container text-center hover:bg-surface-container-high transition-all flex flex-col items-center" onclick="selectOption('days', '3', 3)">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">3</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline text-[10px]">Days / Wk</span>
+</button>
+<button class="opt-btn-days p-3 rounded-lg bg-surface-container text-center hover:bg-surface-container-high transition-all flex flex-col items-center" onclick="selectOption('days', '4', 3)">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">4</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline text-[10px]">Days / Wk</span>
+</button>
+<button class="opt-btn-days p-3 rounded-lg bg-surface-container text-center hover:bg-surface-container-high transition-all flex flex-col items-center" onclick="selectOption('days', '5+', 3)">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">5+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline text-[10px]">Days / Wk</span>
+</button>
+</div>
+</div>
+<!-- Question 4: Dietary Framework -->
+<div class="wizard-step hidden flex flex-col gap-space-sm" id="step-4">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary font-semibold">04. Biochemical Fuel Source</span>
+<div class="flex flex-col gap-2">
+<button class="opt-btn-diet p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex items-center justify-between" onclick="selectOption('diet', 'Omnivore', 4)">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">High-Protein Omnivore</span>
+<span class="font-label-sm text-label-sm text-outline">2.2g/kg BW</span>
+</button>
+<button class="opt-btn-diet p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex items-center justify-between" onclick="selectOption('diet', 'Plant', 4)">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Plant-Based High Performance</span>
+<span class="font-label-sm text-label-sm text-outline">Complete Amino</span>
+</button>
+<button class="opt-btn-diet p-3 rounded-lg bg-surface-container text-left hover:bg-surface-container-high transition-all flex items-center justify-between" onclick="selectOption('diet', 'Keto', 4)">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Low-Carb Ketogenic Fuel</span>
+<span class="font-label-sm text-label-sm text-outline">MCT Enriched</span>
+</button>
+</div>
+</div>
+<!-- Complete State -->
+<div class="wizard-step hidden flex flex-col gap-space-sm items-center text-center py-4" id="step-5">
+<div class="w-12 h-12 rounded-full bg-primary text-surface flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+<span class="material-symbols-outlined text-[28px]">verified</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary uppercase">Blueprint Synthesized</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+          Your profile is tailored for <span class="text-primary font-semibold" id="summaryProfile">Hypertrophy (4 Days)</span> with personalized kinetic loading.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-2">
+<button class="hidden px-4 py-2.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm uppercase tracking-wider" id="wizardBackBtn" onclick="prevStep()">
+          Back
+        </button>
+<button class="flex-1 py-3 px-4 rounded-lg bg-primary text-surface font-label-md text-label-md uppercase tracking-wider font-semibold hover:bg-surface-tint active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-md" id="wizardNextBtn" onclick="nextStep()">
+<span id="wizardBtnText">Next Calibration</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4. CORE WORKOUT PROGRAMMES SECTION -->
+<section class="w-full px-margin-sm py-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-outline font-semibold">Architectural Curriculums</span>
+<h2 class="font-headline-md text-headline-md font-bold uppercase tracking-tight text-primary">Core Disciplines</h2>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">04 Modules</span>
+</div>
+<!-- 4 High-Craft Card Tiles -->
+<div class="flex flex-col gap-space-sm">
+<!-- Card 1: Muscle Building -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-sm relative overflow-hidden shadow-md group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.16em] text-outline">Protocol 01</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-[10px] tracking-widest uppercase">Hypertrophy</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm uppercase font-bold text-primary group-hover:text-primary transition-colors">Muscle Building Architecture</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Mechanical tension maximization, tempo control, and continuous micro-load progressive overload.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm">
+<span>RPE 8.5–9.5</span>
+<span>•</span>
+<span>60–75 Min</span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer" onclick="openAiWithQuery('Create my muscle-building workout')">
+<span>View AI Curriculum</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Fat Loss & Conditioning -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-sm relative overflow-hidden shadow-md group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.16em] text-outline">Protocol 02</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-[10px] tracking-widest uppercase">Metabolic</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm uppercase font-bold text-primary group-hover:text-primary transition-colors">Fat Loss &amp; Metabolic Conditioning</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Lactate threshold intervals, biometric Heart Rate Zone 2/Zone 5 wave-loading, and EPOC acceleration.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm">
+<span>HR Zone 4/5</span>
+<span>•</span>
+<span>45 Min HIIT</span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer" onclick="openAiWithQuery('Build a metabolic fat loss conditioning split')">
+<span>View AI Curriculum</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Strength Training -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-sm relative overflow-hidden shadow-md group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.16em] text-outline">Protocol 03</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-[10px] tracking-widest uppercase">Biomechanical</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm uppercase font-bold text-primary group-hover:text-primary transition-colors">Absolute Strength Training</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Periodized Olympic biomechanics, central nervous system adaptation, and multi-joint peak velocity.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm">
+<span>CNS High Load</span>
+<span>•</span>
+<span>90 Min Split</span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer" onclick="openAiWithQuery('Build an absolute strength CNS training split')">
+<span>View AI Curriculum</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 4: General Longevity -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-sm relative overflow-hidden shadow-md group hover:bg-surface-container transition-all">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.16em] text-outline">Protocol 04</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-[10px] tracking-widest uppercase">Longevity</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm uppercase font-bold text-primary group-hover:text-primary transition-colors">General Fitness &amp; VO2 Longevity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Fascial elasticity, joint integrity telemetry, mitochondrial turnover, and VO2 Max elevation.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-4 text-outline font-label-sm text-label-sm">
+<span>Zone 2 Aerobic</span>
+<span>•</span>
+<span>Daily Flow</span>
+</div>
+<button class="font-label-sm text-label-sm uppercase tracking-wider text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer" onclick="openAiWithQuery('Suggest recovery protocol and VO2 longevity split')">
+<span>View AI Curriculum</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. AI NUTRITION ARCHITECTURE SECTION -->
+<section class="w-full px-margin-sm py-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-outline font-semibold">Biochemical Fuel</span>
+<h2 class="font-headline-md text-headline-md font-bold uppercase tracking-tight text-primary">AI Nutrition Architecture</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous caloric adjustment calibrated to your training burn metrics.</p>
+</div>
+<!-- Nutrition Glass Box -->
+<div class="w-full rounded-xl bg-surface-container-high/40 backdrop-blur-xl p-space-md flex flex-col gap-space-md shadow-xl">
+<!-- Calorie Target Banner -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest">
+<div class="flex flex-col">
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-outline">Daily Energy Expenditure Target</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-primary">2,650</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">kcal / day</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded bg-surface-container text-primary font-label-sm text-label-sm uppercase tracking-wider">
+          +350 Surplus
+        </div>
+</div>
+<!-- Macro Breakdown Visualizer -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">
+<span>Macronutrient Ratio</span>
+<span class="text-primary font-semibold">32P / 42C / 26F</span>
+</div>
+<!-- Stacked Horizontal Bar -->
+<div class="w-full h-3 rounded-full bg-surface-container-highest overflow-hidden flex">
+<div class="h-full bg-primary w-[32%]" title="Protein 32%"></div>
+<div class="h-full bg-outline w-[42%]" title="Carbs 42%"></div>
+<div class="h-full bg-secondary-container w-[26%]" title="Fats 26%"></div>
+</div>
+<!-- Macro Stats Ticker -->
+<div class="grid grid-cols-3 gap-2 pt-1 text-center font-label-sm">
+<div class="p-2 rounded bg-surface-container-low flex flex-col">
+<span class="text-primary font-bold text-[13px]">210g</span>
+<span class="text-outline text-[10px] uppercase tracking-wider">Protein</span>
+</div>
+<div class="p-2 rounded bg-surface-container-low flex flex-col">
+<span class="text-primary font-bold text-[13px]">260g</span>
+<span class="text-outline text-[10px] uppercase tracking-wider">Carbs</span>
+</div>
+<div class="p-2 rounded bg-surface-container-low flex flex-col">
+<span class="text-primary font-bold text-[13px]">70g</span>
+<span class="text-outline text-[10px] uppercase tracking-wider">Fats</span>
+</div>
+</div>
+</div>
+<!-- Meal Strategy Recommendation & Hydration -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="p-3 rounded-lg bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary mt-0.5">restaurant_menu</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Peri-Workout Nutrient Timing</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">Consume 45g cyclic dextrin + 10g EAAs 20 min prior to hypertrophic session. Post-workout protein spike within 45 mins.</p>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-primary mt-0.5">water_drop</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Smart Hydration Matrix</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">3.8L purified electrolyte balance. 850mg Sodium, 320mg Potassium, 110mg Magnesium L-Threonate.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. MEMBERSHIP TIERS SECTION -->
+<section class="w-full px-margin-sm py-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-outline font-semibold">Private Access</span>
+<h2 class="font-headline-md text-headline-md font-bold uppercase tracking-tight text-primary">Sanctuary Memberships</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Limited to 150 private allocations per international flagship.</p>
+</div>
+<!-- 3 Tier Cards -->
+<div class="flex flex-col gap-space-md">
+<!-- Tier 1: Essential -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-md shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-widest text-outline">Tier 01</span>
+<h3 class="font-headline-sm text-headline-sm uppercase font-bold text-primary">Essential</h3>
+</div>
+<div class="flex items-baseline">
+<span class="font-headline-md text-headline-md font-bold text-primary">$250</span>
+<span class="font-label-sm text-label-sm text-outline">/mo</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Full Sanctuary &amp; Machined Floor Access</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Baseline Biometric Body Composition</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Standard NOIR AI Training Assistant</span>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-[16px]">close</span>
+<span class="line-through">Cryotherapy Suite Access</span>
+</div>
+</div>
+<a class="w-full py-3 rounded-lg bg-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider font-semibold text-center hover:bg-surface-bright active:scale-[0.98] transition-all" data-path="memberships" href="index.html#memberships">
+          Apply For Essential
+        </a>
+</div>
+<!-- Tier 2: Elite (Featured) -->
+<div class="relative rounded-xl bg-surface-container-high p-space-md flex flex-col gap-space-md shadow-2xl">
+<!-- Top Spotlight Edge -->
+<div class="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="px-2 py-0.5 rounded-full bg-primary text-surface font-label-sm text-[9px] tracking-widest uppercase font-bold w-fit mb-1">Most Selected</span>
+<h3 class="font-headline-sm text-headline-sm uppercase font-bold text-primary">Elite Access</h3>
+</div>
+<div class="flex items-baseline">
+<span class="font-headline-md text-headline-md font-bold text-primary">$450</span>
+<span class="font-label-sm text-label-sm text-outline">/mo</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary font-bold">check</span>
+<span>24/7 Unrestricted Priority Access</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary font-bold">check</span>
+<span>Full Cryotherapy &amp; Infrared Sauna Recovery</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary font-bold">check</span>
+<span>Continuous Real-Time AI Neural Coach</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary font-bold">check</span>
+<span>Bi-weekly Human Master Coach Telemetry Review</span>
+</div>
+</div>
+<a class="w-full py-3.5 rounded-lg bg-primary text-surface font-label-md text-label-md uppercase tracking-wider font-semibold text-center hover:bg-surface-tint active:scale-[0.98] transition-all shadow-[0_4px_20px_rgba(255,255,255,0.25)]" data-path="memberships" href="index.html#memberships">
+          Apply For Elite Access
+        </a>
+</div>
+<!-- Tier 3: Black VIP -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex flex-col gap-space-md shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] uppercase tracking-widest text-outline">Tier 03 • By Invitation</span>
+<h3 class="font-headline-sm text-headline-sm uppercase font-bold text-primary">Black VIP</h3>
+</div>
+<div class="flex items-baseline">
+<span class="font-headline-md text-headline-md font-bold text-primary">$850</span>
+<span class="font-label-sm text-label-sm text-outline">/mo</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Private Sanctuary Penthouse Suite</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Dedicated Olympic Biomechanist Coach</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Bespoke Private Cellular Nutritionist</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+<span>Unlimited Hyperbaric Protocols &amp; Valet</span>
+</div>
+</div>
+<a class="w-full py-3 rounded-lg bg-surface-container text-primary font-label-md text-label-md uppercase tracking-wider font-semibold text-center hover:bg-surface-bright active:scale-[0.98] transition-all" data-path="contact" href="contact.html">
+          Request Black Invitation
+        </a>
+</div>
+</div>
+</section>
+<!-- 7. GYM STATISTICS & SOCIAL PROOF -->
+<section class="w-full px-margin-sm py-space-lg flex flex-col gap-space-md">
+<!-- Stat Counters -->
+<div class="grid grid-cols-3 gap-2">
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">2,400+</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-outline mt-0.5">Members</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">98.8%</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-outline mt-0.5">Success</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">4.9★</span>
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-outline mt-0.5">Rating</span>
+</div>
+</div>
+<!-- Curated Testimonial Quote -->
+<div class="rounded-xl bg-surface-container-high/40 p-space-md flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">
+        "The telemetry precision at NOIR is unprecedented. The AI predicts muscular failure three sets before my nervous system signals it. It completely transformed my physique in four months."
+      </p>
+<div class="flex items-center gap-3 pt-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Editorial portrait of high-performance male athlete with defined aesthetic jawline in dark charcoal studio lighting, stark high-contrast luxury fitness aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvFsKanqPACk9rlu5mJMBEd2_4gIUdvkpOa1NPi8MfzO6u_psSHZGamd8s_F4o7g_sAOccCDrUnxAXAWkeflVIhJyl8ksewUgmz9uWLjhkEAN9yuz7p-dnx0CwZCALvvClgKK1U8Tdr8hQPQ-QMgQXPnBx_iDYqd3G7bnwsesTGvi4NBXTwbFzmypiE2ljXoYV0QX1bhYICJ4c9HcHNGbUrBB6wn5nR8nVf3Qz3vwxZgaTGXx1Ooi-')">
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-primary uppercase">Marcus Vance</span>
+<span class="font-label-sm text-[11px] text-outline uppercase tracking-wider">FIA GT3 Driver • Elite Member</span>
+</div>
+</div>
+</div>
+<!-- Final High-Impact CTA Banner -->
+<div class="relative w-full rounded-xl bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest p-space-lg flex flex-col items-center text-center gap-space-sm shadow-2xl overflow-hidden mt-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary text-surface flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[22px]">key</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold uppercase text-primary tracking-tight">
+        Enter the Sanctuary
+      </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
+        Private admissions are evaluated weekly by the NOIR Admissions Council. Experience high-order athletic architecture.
+      </p>
+<a class="w-full mt-2 py-3.5 rounded-lg bg-primary text-surface font-label-md text-label-md uppercase tracking-wider font-semibold hover:bg-surface-tint active:scale-[0.98] transition-all shadow-lg" data-path="contact" href="contact.html">
+        Request Private Invitation
+      </a>
+<span class="font-label-sm text-[10px] uppercase tracking-widest text-outline">London • New York • Zürich</span>
+</div>
+</section>
+</div>
+<script>
+  // Questionnaire wizard interactive logic
+  let currentStep = 1;
+  const selections = {
+    goal: 'Hypertrophy',
+    exp: 'Intermediate',
+    days: '4',
+    diet: 'Omnivore'
+  };
+
+  function selectOption(category, value, step) {
+    selections[category] = value;
+    // Highlight active button within category
+    const buttons = document.querySelectorAll('.opt-btn-' + category);
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-surface-container-highest', 'text-primary');
+      btn.classList.add('bg-surface-container');
+    });
+    event.currentTarget.classList.remove('bg-surface-container');
+    event.currentTarget.classList.add('bg-surface-container-highest', 'text-primary');
+    
+    // Auto advance
+    setTimeout(() => {
+      if (currentStep < 4) {
+        goToStep(step + 1);
+      } else {
+        goToStep(5);
+      }
+    }, 220);
+  }
+
+  function goToStep(step) {
+    document.querySelectorAll('.wizard-step').forEach(el => el.classList.add('hidden'));
+    currentStep = step;
+    
+    const target = document.getElementById('step-' + step);
+    if (target) target.classList.remove('hidden');
+
+    const progressEl = document.getElementById('wizardProgressBar');
+    const labelStep = document.getElementById('wizardStepLabel');
+    const labelPercent = document.getElementById('wizardPercentLabel');
+    const backBtn = document.getElementById('wizardBackBtn');
+    const nextBtn = document.getElementById('wizardNextBtn');
+    const btnText = document.getElementById('wizardBtnText');
+
+    if (step > 1 && step <= 4) {
+      backBtn.classList.remove('hidden');
+    } else {
+      backBtn.classList.add('hidden');
+    }
+
+    if (step <= 4) {
+      const pct = step * 25;
+      progressEl.style.width = pct + '%';
+      labelStep.innerText = 'Vector 0' + step + ' of 04';
+      labelPercent.innerText = pct + '% CALIBRATED';
+      btnText.innerText = step === 4 ? 'Synthesize Protocol' : 'Next Calibration';
+    } else {
+      // Step 5: Complete
+      progressEl.style.width = '100%';
+      labelStep.innerText = 'Calibration Complete';
+      labelPercent.innerText = '100% READY';
+      btnText.innerText = 'Launch Blueprint';
+      nextBtn.onclick = function() {
+        openAiWithQuery('Initiate calibrated blueprint for ' + selections.goal + ' (' + selections.days + ' days/week)');
+      };
+      const summary = document.getElementById('summaryProfile');
+      if (summary) {
+        summary.innerText = selections.goal + ' (' + selections.days + ' Days/Wk, ' + selections.diet + ')';
+      }
+    }
+  }
+
+  function nextStep() {
+    if (currentStep < 5) {
+      goToStep(currentStep + 1);
+    }
+  }
+
+  function prevStep() {
+    if (currentStep > 1) {
+      goToStep(currentStep - 1);
+    }
+  }
+
+  // Interactive AI Terminal functions
+  function simulateQuery(text) {
+    const input = document.getElementById('neuralInput');
+    if (input) input.value = text;
+    handleCustomSubmit();
+  }
+
+  function handleCustomSubmit() {
+    const typing = document.getElementById('aiTypingFeedback');
+    const input = document.getElementById('neuralInput');
+    if (!input || !input.value.trim()) return;
+
+    if (typing) {
+      typing.classList.remove('hidden');
+      setTimeout(() => {
+        typing.classList.add('hidden');
+        input.value = '';
+      }, 1200);
+    }
+  }
+</script><footer class="w-full px-margin-sm pt-space-xl pb-space-lg flex flex-col items-center justify-center text-center gap-space-sm mt-auto opacity-70"><div class="flex items-center gap-space-md font-label-sm text-label-sm uppercase tracking-[0.18em] text-on-surface-variant"><span>LON 51.5074° N</span><span class="w-1 h-1 rounded-full bg-outline"></span><span>NYC 40.7128° W</span></div><div class="flex items-center gap-space-md font-label-sm text-label-sm uppercase text-outline"><a class="hover:text-primary transition-colors" data-path="about" href="about.html">About</a><span>•</span><a class="hover:text-primary transition-colors" data-path="memberships" href="index.html#memberships">Private Access</a><span>•</span><a class="hover:text-primary transition-colors" data-path="contact" href="contact.html">Concierge</a></div><p class="font-label-sm text-label-sm tracking-widest text-outline uppercase">© 2025 NOIR ATHLETIC INTELLIGENCE</p></footer></main><div class="fixed bottom-24 right-4 z-50"><button class="group relative flex items-center gap-space-xs h-12 pl-space-md pr-space-lg rounded-full bg-surface-container-high/90 backdrop-blur-2xl border border-outline-variant/40 shadow-[0_12px_32px_rgba(0,0,0,0.8),0_0_18px_rgba(255,255,255,0.15)] hover:shadow-[0_12px_36px_rgba(0,0,0,0.9),0_0_24px_rgba(255,255,255,0.3)] hover:border-primary/50 transition-all duration-300 cursor-pointer active:scale-95" onclick="openAiModal()"><div class="relative flex items-center justify-center w-6 h-6"><span class="absolute inset-0 rounded-full bg-primary/20 animate-ping"></span><span class="material-symbols-outlined text-primary text-[20px]">neurology</span></div><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm tracking-[0.16em] uppercase text-primary leading-tight font-semibold">NOIR AI</span><span class="font-label-sm text-[9px] tracking-widest uppercase text-on-surface-variant leading-none">Biometrics Live</span></div></button></div>
+<!-- HIGH-FIDELITY INTERACTIVE NOIR AI COACH CHAT MODAL -->
+<div aria-hidden="true" class="fixed inset-0 z-50 flex flex-col justify-end pointer-events-none transition-all duration-300 opacity-0" id="aiChatModalBackdrop">
+<!-- Backdrop Blur Overlay -->
+<div class="absolute inset-0 bg-surface-container-lowest/80 backdrop-blur-xl transition-opacity duration-300" onclick="closeAiModal()"></div>
+<!-- Bottom Sheet / Luxury Overlay Window -->
+<div class="relative w-full max-w-lg mx-auto bg-surface-container-low/95 border-t border-x border-outline-variant/40 rounded-t-2xl shadow-[0_-12px_48px_rgba(0,0,0,0.9),0_0_24px_rgba(255,255,255,0.06)] flex flex-col max-h-[88vh] h-[640px] z-10 transition-transform duration-300 translate-y-full overflow-hidden" id="aiChatModalSheet">
+<!-- Top Specular Ambient Line -->
+<div class="absolute top-0 inset-x-12 h-[1px] bg-gradient-to-r from-transparent via-primary/60 to-transparent pointer-events-none"></div>
+<!-- Drag Handle Indicator -->
+<div class="w-full flex justify-center pt-2 pb-1">
+<div class="w-10 h-1 rounded-full bg-outline-variant"></div>
+</div>
+<!-- Modal Header -->
+<div class="px-space-md py-space-sm border-b border-outline-variant/30 flex items-center justify-between bg-surface-container/60 backdrop-blur-md">
+<div class="flex items-center gap-2.5">
+<div class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-surface-container-lowest border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[18px]">cognition</span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[11px] font-bold tracking-[0.16em] uppercase text-primary">NOIR AI COACH</span>
+<span class="text-outline text-[10px]">•</span>
+<span class="font-label-sm text-[10px] tracking-wider uppercase text-on-surface-variant font-mono">CORE v4.2</span>
+</div>
+<div class="flex items-center gap-2 text-outline font-label-sm text-[9px] tracking-widest uppercase">
+<span class="flex items-center gap-1 text-emerald-400 font-semibold"><span class="w-1 h-1 rounded-full bg-emerald-400"></span>SYSTEM ACTIVE</span>
+<span>•</span>
+<span>BIOMETRIC LATENCY: 4ms</span>
+</div>
+</div>
+</div>
+<button aria-label="Close AI Coach modal" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-outline hover:text-primary hover:bg-surface-bright transition-colors cursor-pointer" onclick="closeAiModal()">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Quick Prompt Pills Carousel -->
+<div class="px-space-md py-2 bg-surface-container-lowest/70 border-b border-outline-variant/20 flex items-center gap-2 overflow-x-auto no-scrollbar">
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-label-sm font-label-sm tracking-wider uppercase transition-all duration-200 flex items-center gap-1.5 active:scale-95 cursor-pointer" onclick="sendQuickPrompt('Create my muscle-building workout')">
+<span class="material-symbols-outlined text-[13px] text-primary">fitness_center</span>
+<span>Create muscle-building workout</span>
+</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-label-sm font-label-sm tracking-wider uppercase transition-all duration-200 flex items-center gap-1.5 active:scale-95 cursor-pointer" onclick="sendQuickPrompt('How much protein do I need?')">
+<span class="material-symbols-outlined text-[13px] text-primary">restaurant</span>
+<span>Protein target</span>
+</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-label-sm font-label-sm tracking-wider uppercase transition-all duration-200 flex items-center gap-1.5 active:scale-95 cursor-pointer" onclick="sendQuickPrompt('Build a weekly training split')">
+<span class="material-symbols-outlined text-[13px] text-primary">calendar_month</span>
+<span>Weekly training split</span>
+</button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface text-label-sm font-label-sm tracking-wider uppercase transition-all duration-200 flex items-center gap-1.5 active:scale-95 cursor-pointer" onclick="sendQuickPrompt('Suggest recovery protocol')">
+<span class="material-symbols-outlined text-[13px] text-primary">spa</span>
+<span>Suggest recovery protocol</span>
+</button>
+</div>
+<!-- Message History Area -->
+<div class="flex-1 p-space-md overflow-y-auto flex flex-col gap-3.5 space-y-0" id="aiChatMessages">
+<!-- AI Greeting Bubble -->
+<div class="self-start max-w-[92%] flex gap-2.5 items-start">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-inner">
+<span class="material-symbols-outlined text-[14px] text-primary">cognition</span>
+</div>
+<div class="rounded-xl rounded-tl-none bg-surface-container-high/70 border border-outline-variant/30 p-3 shadow-md flex flex-col gap-1.5 text-left">
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-sm text-[10px] tracking-wider uppercase text-primary font-semibold">NOIR Neural Engine</span>
+<span class="font-label-sm text-[9px] text-outline font-mono">NOW</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+            Welcome, Member. Biometric telemetry synced. How can I assist your physical optimization today?
+          </p>
+</div>
+</div>
+</div>
+<!-- Futuristic Dynamic Typing Indicator -->
+<div class="hidden px-space-md pb-2 self-start flex items-center gap-2 text-outline font-label-sm text-label-sm" id="modalTypingIndicator">
+<div class="w-6 h-6 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px] text-primary">psychology</span>
+</div>
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/30">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce [animation-delay:0.2s]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce [animation-delay:0.4s]"></span>
+<span class="ml-1 uppercase tracking-wider text-[10px] text-on-surface-variant font-mono">NOIR AI computing neural pathway...</span>
+</div>
+</div>
+<!-- Interactive Input Bar -->
+<div class="p-space-sm bg-surface-container/80 border-t border-outline-variant/30 backdrop-blur-xl">
+<form class="flex items-center gap-2 p-1 rounded-xl bg-surface-container-lowest border border-outline-variant/40 focus-within:border-primary/60 transition-colors" id="modalChatForm" onsubmit="handleModalSubmit(event)">
+<button aria-label="Microphone input" class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-primary transition-colors cursor-pointer" onclick="toggleVoiceMock(event)" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+<input autocomplete="off" class="flex-1 bg-transparent px-2 py-1.5 text-on-surface font-body-sm text-body-sm placeholder:text-outline outline-none" id="modalChatInput" placeholder="Ask NOIR AI (workouts, macros, biomechanics)..." type="text"/>
+<button aria-label="Send message" class="w-8 h-8 rounded-lg bg-primary text-surface flex items-center justify-center hover:bg-surface-tint active:scale-95 transition-all shadow-md cursor-pointer" type="submit">
+<span class="material-symbols-outlined text-[16px] font-bold">arrow_upward</span>
+</button>
+</form>
+<div class="flex justify-between items-center px-1 pt-1.5 text-[9px] uppercase tracking-widest text-outline font-label-sm">
+<span>End-to-End Encrypted Telemetry</span>
+<span>Tap Esc or swipe down to exit</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Global AI Coach Modal Controller
+  function openAiModal() {
+    const backdrop = document.getElementById('aiChatModalBackdrop');
+    const sheet = document.getElementById('aiChatModalSheet');
+    if (!backdrop || !sheet) return;
+
+    backdrop.classList.remove('pointer-events-none', 'opacity-0');
+    backdrop.classList.add('pointer-events-auto', 'opacity-100');
+    sheet.classList.remove('translate-y-full');
+    sheet.classList.add('translate-y-0');
+
+    setTimeout(() => {
+      const input = document.getElementById('modalChatInput');
+      if (input) input.focus();
+    }, 280);
+  }
+
+  function closeAiModal() {
+    const backdrop = document.getElementById('aiChatModalBackdrop');
+    const sheet = document.getElementById('aiChatModalSheet');
+    if (!backdrop || !sheet) return;
+
+    sheet.classList.remove('translate-y-0');
+    sheet.classList.add('translate-y-full');
+    backdrop.classList.remove('pointer-events-auto', 'opacity-100');
+    backdrop.classList.add('pointer-events-none', 'opacity-0');
+  }
+
+  function openAiWithQuery(query) {
+    openAiModal();
+    setTimeout(() => {
+      sendQuickPrompt(query);
+    }, 320);
+  }
+
+  // Handle keyboard ESC to close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAiModal();
+  });
+
+  function toggleVoiceMock(e) {
+    e.preventDefault();
+    const input = document.getElementById('modalChatInput');
+    if (input) {
+      input.value = "Voice sample: Optimize my hamstring recovery cadence.";
+      input.focus();
+    }
+  }
+
+  function sendQuickPrompt(promptText) {
+    const input = document.getElementById('modalChatInput');
+    if (input) {
+      input.value = promptText;
+    }
+    executeSendMessage(promptText);
+  }
+
+  function handleModalSubmit(event) {
+    if (event) event.preventDefault();
+    const input = document.getElementById('modalChatInput');
+    if (!input) return;
+    const msg = input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    executeSendMessage(msg);
+  }
+
+  function executeSendMessage(messageText) {
+    const chatContainer = document.getElementById('aiChatMessages');
+    const indicator = document.getElementById('modalTypingIndicator');
+    if (!chatContainer) return;
+
+    // Append User Message Bubble
+    const userBubble = document.createElement('div');
+    userBubble.className = "self-end max-w-[85%] rounded-xl rounded-tr-none bg-primary text-surface px-3.5 py-2.5 font-body-sm text-body-sm font-medium shadow-md flex flex-col gap-1";
+    userBubble.innerHTML = `<span>${escapeHtml(messageText)}</span><span class="text-[9px] uppercase tracking-wider text-surface/70 self-end font-mono">TRANSMITTED</span>`;
+    chatContainer.appendChild(userBubble);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // Show Typing Indicator
+    if (indicator) {
+      indicator.classList.remove('hidden');
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    // Generate Contextual Luxury AI Response after 600ms
+    setTimeout(() => {
+      if (indicator) indicator.classList.add('hidden');
+      const responseHtml = generateAiResponse(messageText);
+
+      const aiBubble = document.createElement('div');
+      aiBubble.className = "self-start max-w-[92%] flex gap-2.5 items-start";
+      aiBubble.innerHTML = `
+        <div class="w-7 h-7 rounded-full bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center flex-shrink-0 mt-0.5 shadow-inner">
+          <span class="material-symbols-outlined text-[14px] text-primary">cognition</span>
+        </div>
+        <div class="rounded-xl rounded-tl-none bg-surface-container-high/70 border border-outline-variant/30 p-3 shadow-md flex flex-col gap-1.5 text-left">
+          <div class="flex items-center justify-between gap-4">
+            <span class="font-label-sm text-[10px] tracking-wider uppercase text-primary font-semibold">NOIR Neural Engine</span>
+            <span class="font-label-sm text-[9px] text-outline font-mono">4ms TELEMETRY</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+            ${responseHtml}
+          </p>
+        </div>
+      `;
+      chatContainer.appendChild(aiBubble);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }, 600);
+  }
+
+  function generateAiResponse(query) {
+    const q = query.toLowerCase();
+    if (q.includes('muscle') || q.includes('hypertrophy') || q.includes('workout')) {
+      return `Targeting <strong class="text-primary">Mechanical Overload Architecture</strong>. Recommended split:<br/>• A1. 30° Incline DB Press: 4 sets × 8–10 reps (3-1-0 tempo, RPE 9)<br/>• A2. Chest-Supported T-Bar Row: 4 sets × 10–12 reps<br/>• B1. Deficit Bulgarian Split Squats: 3 sets × 8/leg<br/>Telemetry Note: Rest 120s between sets to allow full ATP regeneration.`;
+    } else if (q.includes('protein') || q.includes('macro') || q.includes('diet') || q.includes('nutrition')) {
+      return `Biochemical calculation synced to lean body mass: Target <strong class="text-primary">2.2g per kg</strong> of body weight (approx. <strong class="text-primary">210g daily</strong>). Distribute into 4 pulses of ~50g high-leucine protein spaced 3.5 hours apart to sustain mTOR activation.`;
+    } else if (q.includes('split') || q.includes('week') || q.includes('schedule')) {
+      return `Recommended 4-day <strong class="text-primary">Upper/Lower Wave Protocol</strong>:<br/>• Monday: Upper A (Max Force & Horizontal Plane)<br/>• Tuesday: Lower A (Quad Dominant + Posterior Chain)<br/>• Thursday: Upper B (Vertical Pull + Shoulder Hypertrophy)<br/>• Friday: Lower B (Hamstring Density + CNS Acceleration)<br/>Wed/Sat/Sun: Dedicated Zone 2 Active Hyperbaric Recovery.`;
+    } else if (q.includes('recovery') || q.includes('sore') || q.includes('sleep') || q.includes('strain')) {
+      return `Somatic Recovery Protocol initiated:<br/>• 12 Min Cryotherapy Suite session at -110°C<br/>• 20 Min Smoked Far-Infrared Sauna session followed by cold plunge<br/>• 400mg Magnesium L-Threonate + 3g Glycine 30 min prior to sleep cycle. Target REM latency under 18 minutes.`;
+    } else {
+      return `Telemetry synthesized for query: "<em>${escapeHtml(query)}</em>". Calibrating neurological load and mitochondrial output. Current system readiness is <strong class="text-primary">94%</strong>. Proceed with your designated microcycle with strict tempo adherence.`;
+    }
+  }
+
+  function escapeHtml(string) {
+    return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+      return {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;',
+        '=': '&#x3D;',
+        '`': '&#x60;'
+      }[s];
+    });
+  }
+</script>
+<nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/85 backdrop-blur-2xl shadow-[0_-8px_32px_rgba(0,0,0,0.7)]" data-active-classes="text-primary scale-105"><div class="flex justify-around items-center h-20 px-space-xs max-w-md mx-auto"><a aria-current="page" class="flex flex-col items-center justify-center gap-1 w-14 h-14 transition-all duration-200 text-primary scale-105" data-path="home" href="index.html"><span class="material-symbols-outlined text-[24px]">dashboard</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Club</span></a><a class="flex flex-col items-center justify-center gap-1 w-14 h-14 text-on-surface-variant hover:text-on-surface transition-all duration-200" data-path="memberships" href="index.html#memberships"><span class="material-symbols-outlined text-[24px]">card_membership</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Tiers</span></a><button class="flex flex-col items-center justify-center gap-1 w-14 h-14 text-on-surface-variant hover:text-on-surface transition-all duration-200 cursor-pointer" onclick="openAiModal()"><span class="material-symbols-outlined text-[24px]">cognition</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Coach</span></button><a class="flex flex-col items-center justify-center gap-1 w-14 h-14 text-on-surface-variant hover:text-on-surface transition-all duration-200" data-path="about" href="about.html"><span class="material-symbols-outlined text-[24px]">diamond</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Atelier</span></a><a class="flex flex-col items-center justify-center gap-1 w-14 h-14 text-on-surface-variant hover:text-on-surface transition-all duration-200" data-path="contact" href="contact.html"><span class="material-symbols-outlined text-[24px]">dialer_sip</span><span class="font-label-sm text-label-sm uppercase tracking-wider">Desk</span></a></div></nav><style>
+ html{scroll-behavior:smooth}body{overflow-x:hidden}button,a,input,select,textarea{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid white;outline-offset:3px}
+ @media(min-width:850px){main>div:first-child{max-width:1120px;margin-left:auto;margin-right:auto;width:100%}header>div{max-width:1200px;margin:auto}.noir-desktop-nav{display:flex!important}nav.fixed.bottom-0{display:none}main{padding-bottom:60px!important}.noir-hero-image{max-height:600px;object-fit:cover}}
+ .noir-desktop-nav{display:none;gap:22px;align-items:center;font:600 12px 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase}.noir-desktop-nav a:hover{color:white}.noir-menu{position:fixed;z-index:80;top:64px;left:16px;width:min(300px,calc(100vw - 32px));padding:16px;background:#202020;border:1px solid #555;border-radius:12px;box-shadow:0 15px 50px #000;display:none}.noir-menu.open{display:grid;gap:8px}.noir-menu a{padding:12px;color:white;border-bottom:1px solid #333}.noir-menu a:hover{background:#333}
+ .noir-status{padding:12px;background:#242424;border:1px solid #666;border-radius:8px;margin-top:10px;color:white}
+ </style><div aria-label="Site menu" class="noir-menu" id="noirMenu"><a href="index.html">Home</a><a href="about.html">About</a><a href="index.html#memberships">Memberships</a><a href="contact.html">Contact</a><a href="#ai-coach" onclick="openAiModal();toggleNoirMenu();return false">AI Coach</a></div>
+<script defer="" src="site.js"></script></body></html>
