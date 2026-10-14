@@ -1,0 +1,10 @@
+{
+  "name": "noir-athletics-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NOIR ATHLETICS website with Gemini-powered NOIR AI chatbot (Vercel serverless API).",
+  "dependencies": {
+    "@google/genai": "^1.0.0"
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-noir-chat-page>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>NOIR AI — Full Conversation | NOIR ATHLETICS</title>
+<meta name="description" content="Talk to NOIR AI, the Gemini-powered conversational assistant of NOIR ATHLETICS, in a full-screen premium chat experience."/>
+<meta name="theme-color" content="#171717"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="noir-chat.css"/>
+<style>
+  html, body { height: 100%; margin: 0; background: #171717; }
+  body { display: flex; flex-direction: column; font-family: Inter, sans-serif; }
+  .ai-topbar {
+    display: flex; align-items: center; gap: 18px;
+    padding: 14px 20px;
+    background: #1b1b1b;
+    border-bottom: 1px solid rgba(163,163,163,0.18);
+  }
+  .ai-brand {
+    font: 700 15px/1 "Space Grotesk", sans-serif;
+    letter-spacing: 0.28em; text-transform: uppercase; color: #fff;
+    text-decoration: none; display: flex; align-items: center; gap: 10px;
+  }
+  .ai-brand .dot { width: 8px; height: 8px; border-radius: 50%; background: #34d399; box-shadow: 0 0 10px rgba(52,211,153,0.8); }
+  .ai-links { margin-left: auto; display: flex; gap: 18px; }
+  .ai-links a {
+    font: 600 11px/1 "Space Grotesk", sans-serif;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: #a3a3a3; text-decoration: none; transition: color 0.2s;
+  }
+  .ai-links a:hover, .ai-links a[aria-current="page"] { color: #fff; }
+  #noirChatPage { flex: 1; min-height: 0; display: flex; }
+  @media (max-width: 640px) {
+    .ai-topbar { padding: 12px 14px; gap: 12px; }
+    .ai-brand { font-size: 13px; letter-spacing: 0.2em; }
+    .ai-links { gap: 12px; }
+    .ai-links a { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<header class="ai-topbar">
+  <a class="ai-brand" href="index.html"><span class="dot"></span>NOIR ATHLETICS</a>
+  <nav class="ai-links" aria-label="Primary">
+    <a href="index.html">Club</a>
+    <a href="about.html">Atelier</a>
+    <a href="contact.html">Desk</a>
+    <a href="ai.html" aria-current="page">NOIR AI</a>
+  </nav>
+</header>
+<main id="noirChatPage" class="noir-page"></main>
+<script src="noir-chat.js"></script>
+</body>
+</html>
